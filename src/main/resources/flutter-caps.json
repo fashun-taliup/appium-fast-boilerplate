@@ -1,0 +1,8 @@
+{
+  "platformName": "android",
+  "automationName": "flutter",
+  "platformVersion": "15",
+  "deviceName": "Pixel Tablet API 35",
+  "app": "/Users/fashunzheng/Projects/table_management/build/app/outputs/flutter-apk/app-debug.apk",
+  "appPackage": "com.example.table_management"
+}

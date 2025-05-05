@@ -2,5 +2,6 @@ package constants;
 
 public enum Target {
     ANDROID,
-    IOS
+    IOS,
+    FLUTTER,
 }

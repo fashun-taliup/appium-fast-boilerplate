@@ -24,6 +24,8 @@ public class DriverManager {
                 return getAndroidDriver();
             case IOS:
                 return getIOSDriver();
+            case FLUTTER:
+                return getFlutterDriver();
             default:
                 throw new PlatformNotSupportException("Please provide supported target");
         }
@@ -36,6 +38,11 @@ public class DriverManager {
 
     private AppiumDriver getIOSDriver() throws IOException {
         HashMap map = readAndMakeCapabilities("ios-caps.json");
+        return getDriver(map);
+    }
+
+    private AppiumDriver getFlutterDriver() throws IOException {
+        HashMap map = readAndMakeCapabilities("flutter-caps.json");
         return getDriver(map);
     }
 

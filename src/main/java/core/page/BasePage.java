@@ -1,5 +1,6 @@
 package core.page;
 
+import core.flutter.FlutterFinder;
 import io.appium.java_client.AppiumDriver;
 
 import org.openqa.selenium.By;
@@ -13,8 +14,11 @@ import java.util.List;
 public class BasePage {
     protected AppiumDriver driver;
 
+    protected FlutterFinder flutterFinder;
+
     public BasePage(AppiumDriver driver) {
         this.driver = driver;
+        this.flutterFinder = new FlutterFinder(driver);
     }
 
     public void click(WebElement elem) {
@@ -23,6 +27,10 @@ public class BasePage {
 
     public WebElement getElement(By by) {
         return driver.findElement(by);
+    }
+
+    public WebElement getFlutterElement(String key) {
+        return flutterFinder.byValueKey(key);
     }
 
     public List<WebElement> getElements(By by) {
