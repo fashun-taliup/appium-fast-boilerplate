@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class BasePage {
@@ -33,27 +34,27 @@ public class BasePage {
     }
 
     public void waitForElementToBeVisible(WebElement elem) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(elem));
     }
 
     public void waitForElementToBePresent(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(10));
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
     public void waitForElementToBePresentAndVisible(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     public void waitForElementTextToBe(By by, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(10));
         wait.until(ExpectedConditions.textToBe(by, text));
     }
 
     public void waitForElementTextToNotBe(By by, String text) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver,  Duration.ofSeconds(10));
         wait.until(ExpectedConditions.not(
                 ExpectedConditions.textToBe(by, text)
         ));
