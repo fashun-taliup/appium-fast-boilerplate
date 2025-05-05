@@ -11,6 +11,18 @@ public class ActivationPage extends BasePage {
         super(driver);
     }
 
+    public ActivationPage inputEmail(String email) {
+        WebElement element = getFlutterElement("activation_email");
+        type(element, email);
+        return this;
+    }
+
+    public ActivationPage inputPassword(String password) {
+        WebElement element = getFlutterElement("activation_password");
+        type(element, password);
+        return this;
+    }
+
     public ActivationPage clickActivationButton() {
         WebElement element = getFlutterElement("activation_button");
         element.click();
@@ -19,7 +31,6 @@ public class ActivationPage extends BasePage {
 
     public String getActivationButtonText() {
         WebElement element = getFlutterElement("activation_button");
-
         return element.getText();
     }
 }
