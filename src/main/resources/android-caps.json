@@ -1,9 +1,9 @@
 {
   "platformName": "android",
   "automationName": "uiautomator2",
-  "platformVersion": "12",
-  "deviceName": "Automation",
-  "app": "src/test/resources/ApiDemos-debug.apk",
-  "appPackage": "io.appium.android.apis",
-  "appActivity": "io.appium.android.apis.ApiDemos"
+  "platformVersion": "10",
+  "deviceName": "A920 Pro API 29",
+  "app": "/Users/fashunzheng/Projects/taliup-register-pax/app/build/outputs/apk/debug/app-debug.apk",
+  "appPackage": "com.taliup.register",
+  "appActivity": "com.taliup.register.home.HomeActivity"
 }

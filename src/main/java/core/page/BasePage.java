@@ -1,6 +1,7 @@
 package core.page;
 
 import io.appium.java_client.AppiumDriver;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,7 +42,28 @@ public class BasePage {
         wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    public void waitForElementToBePresentAndVisible(By by) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public void waitForElementTextToBe(By by, String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.textToBe(by, text));
+    }
+
+    public void waitForElementTextToNotBe(By by, String text) {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.not(
+                ExpectedConditions.textToBe(by, text)
+        ));
+    }
+
     public void type(WebElement elem, String text) {
         elem.sendKeys(text);
+    }
+
+    public boolean isElementDisplayed(WebElement elem) {
+        return elem.isDisplayed();
     }
 }
