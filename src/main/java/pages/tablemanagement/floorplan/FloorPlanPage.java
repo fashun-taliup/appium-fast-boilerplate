@@ -1,5 +1,6 @@
 package pages.tablemanagement.floorplan;
 
+import core.flutter.FlutterElement;
 import core.page.BasePage;
 import io.appium.java_client.AppiumDriver;
 
@@ -23,4 +24,7 @@ public class FloorPlanPage extends BasePage {
         return new AddTableDialogPage(this.driver);
     }
 
+    public FlutterElement getTableAt(int tableIndex) {
+        return getFlutterElement("table_index_" + tableIndex);
+    }
 }

@@ -1,10 +1,14 @@
-import org.testng.Assert;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import org.testng.annotations.Test;
 
 import constants.TestGroups;
+import core.flutter.FlutterElement;
 import pages.tablemanagement.ActivationPage;
 import pages.tablemanagement.HomePage;
-import pages.tablemanagement.LoginPage;
+import pages.tablemanagement.floorplan.FloorPlanPage;
 
 public class FlutterTest extends BaseTest {
 
@@ -27,26 +31,14 @@ public class FlutterTest extends BaseTest {
                 .manageFloorPlan()
                 .openAddTableDialog()
                 .selectTableShape("circle")
-                .addNewTable();
+                .addNewTable()
+                .saveFloorPlan();
 
-        // Uncomment the following lines to test order management
+        FlutterElement tableFilter = new HomePage(this.driver)
+                .navToOrderManagement()
+                .getOrderTableFilterAt(0);
 
-//        new HomePage(this.driver)
-//                .navToOrderManagement()
-//                .selectOrderTableFilter(109);
-//                .selectOrder(15345)
-//                .clickOrderCardEdit(15345)
-//                .clickProduct(13421)
-//                .selectAttributeValue(11947)
-//                .selectAttributeValue(11949)
-//                .increaseItemQty()
-//                .selectCustomerPosition(2)
-//                .addToCart();
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        assertNotNull(tableFilter, "Table filter not found");
     }
+
 }

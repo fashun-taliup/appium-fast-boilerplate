@@ -14,8 +14,7 @@ public class AddTableDialogPage extends BasePage {
     }
 
     public FloorPlanPage addNewTable() {
-        getFlutterElement("add_table_button").click();
+        getFlutterElement("add_table_confirm").click();
         return new FloorPlanPage(this.driver);
     }
-
 }

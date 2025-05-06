@@ -2,6 +2,7 @@ package pages.tablemanagement;
 
 import org.openqa.selenium.WebElement;
 
+import core.flutter.FlutterElement;
 import core.page.BasePage;
 import io.appium.java_client.AppiumDriver;
 import pages.tablemanagement.register.RegisterPage;
@@ -29,39 +30,40 @@ public class OrderManagementPage extends BasePage {
         return this;
     }
 
-    public OrderManagementPage selectOrderTableFilter(int tableId) {
-        WebElement element = getFlutterElement("order_filter_table_" + tableId);
+    public OrderManagementPage selectOrderTableFilterAll() {
+        WebElement element = getFlutterElement("order_filter_table_all");
         element.click();
         return this;
     }
 
-    public OrderManagementPage selectOrder(int orderId) {
-        WebElement element = getFlutterElement("order_card_" + orderId);
-        element.click();
-        return this;
+    public FlutterElement getOrderTableFilterAt(int index) {
+        return getFlutterElement("order_filter_table_index_" + index);
     }
 
+    public FlutterElement getOrderCardAt(int index) {
+        return getFlutterElement("order_card_" + index);
+    }
 
-    public RegisterPage clickOrderCardEdit(int orderId) {
-        WebElement element = getFlutterElement("order_card_" + orderId + "_action_edit");
+    public RegisterPage clickOrderCardEdit(int index) {
+        WebElement element = getFlutterElement("order_card_" + index + "_action_edit");
         element.click();
         return new RegisterPage(this.driver);
     }
 
-    public OrderManagementPage clickOrderCardSplit(int orderId) {
-        WebElement element = getFlutterElement("order_card_" + orderId + "_action_split");
+    public OrderManagementPage clickOrderCardSplit(int index) {
+        WebElement element = getFlutterElement("order_card_" + index + "_action_split");
         element.click();
         return this;
     }
 
-    public OrderManagementPage clickOrderCardMerge(int orderId) {
-        WebElement element = getFlutterElement("order_card_" + orderId + "_action_merge");
+    public OrderManagementPage clickOrderCardMerge(int index) {
+        WebElement element = getFlutterElement("order_card_" + index + "_action_merge");
         element.click();
         return this;
     }
 
-    public String getOrderCardOrderId(int orderId) {
-        WebElement element = getFlutterElement("order_card_" + orderId + "_order_id");
+    public String getOrderCardOrderId(int index) {
+        WebElement element = getFlutterElement("order_card_" + index + "_order_id");
         return element.getText();
     }
 }

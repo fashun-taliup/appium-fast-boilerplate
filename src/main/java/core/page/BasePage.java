@@ -31,7 +31,14 @@ public class BasePage {
     }
 
     public FlutterElement getFlutterElement(String key) {
-        return flutterFinder.byValueKey(key);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        return wait.until(driver -> {
+            try {
+                return flutterFinder.byValueKey(key);
+            } catch (Exception e) {
+                return null;
+            }
+        });
     }
 
     public List<WebElement> getElements(By by) {
