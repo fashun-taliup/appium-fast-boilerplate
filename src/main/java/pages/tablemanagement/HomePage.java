@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 
 import core.page.BasePage;
 import io.appium.java_client.AppiumDriver;
+import pages.tablemanagement.floorplan.FloorPlanPage;
 
 public class HomePage extends BasePage {
 
@@ -17,10 +18,10 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage navToFloorPlan() {
+    public FloorPlanPage navToFloorPlan() {
         WebElement element = getFlutterElement("nav_bar_floor_plan");
         element.click();
-        return this;
+        return new FloorPlanPage(this.driver);
     }
 
     public OrderManagementPage navToOrderManagement() {

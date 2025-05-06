@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 
 import core.page.BasePage;
 import io.appium.java_client.AppiumDriver;
+import pages.tablemanagement.register.RegisterPage;
 
 public class OrderManagementPage extends BasePage {
     public OrderManagementPage(AppiumDriver driver) {
@@ -28,6 +29,12 @@ public class OrderManagementPage extends BasePage {
         return this;
     }
 
+    public OrderManagementPage selectOrderTableFilter(int tableId) {
+        WebElement element = getFlutterElement("order_filter_table_" + tableId);
+        element.click();
+        return this;
+    }
+
     public OrderManagementPage selectOrder(int orderId) {
         WebElement element = getFlutterElement("order_card_" + orderId);
         element.click();
@@ -35,10 +42,10 @@ public class OrderManagementPage extends BasePage {
     }
 
 
-    public OrderManagementPage clickOrderCardEdit(int orderId) {
+    public RegisterPage clickOrderCardEdit(int orderId) {
         WebElement element = getFlutterElement("order_card_" + orderId + "_action_edit");
         element.click();
-        return this;
+        return new RegisterPage(this.driver);
     }
 
     public OrderManagementPage clickOrderCardSplit(int orderId) {

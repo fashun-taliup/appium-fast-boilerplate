@@ -1,5 +1,6 @@
 package core.page;
 
+import core.flutter.FlutterElement;
 import core.flutter.FlutterFinder;
 import io.appium.java_client.AppiumDriver;
 
@@ -29,7 +30,7 @@ public class BasePage {
         return driver.findElement(by);
     }
 
-    public WebElement getFlutterElement(String key) {
+    public FlutterElement getFlutterElement(String key) {
         return flutterFinder.byValueKey(key);
     }
 

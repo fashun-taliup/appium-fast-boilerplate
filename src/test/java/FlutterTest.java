@@ -10,7 +10,7 @@ public class FlutterTest extends BaseTest {
 
     @Test(groups = {TestGroups.FLUTTER})
     public void test() {
-       new ActivationPage(this.driver)
+        new ActivationPage(this.driver)
                 .inputEmail("priyank+expresstaxe@taliup.ca")
                 .inputPassword("12345678")
                 .clickActivationButton()
@@ -23,9 +23,25 @@ public class FlutterTest extends BaseTest {
                 .inputPin(1);
 
         new HomePage(this.driver)
-                .navToOrderManagement()
-                .selectOrder(15343)
-                .clickOrderCardEdit(15343);
+                .navToFloorPlan()
+                .manageFloorPlan()
+                .openAddTableDialog()
+                .selectTableShape("circle")
+                .addNewTable();
+
+        // Uncomment the following lines to test order management
+
+//        new HomePage(this.driver)
+//                .navToOrderManagement()
+//                .selectOrderTableFilter(109);
+//                .selectOrder(15345)
+//                .clickOrderCardEdit(15345)
+//                .clickProduct(13421)
+//                .selectAttributeValue(11947)
+//                .selectAttributeValue(11949)
+//                .increaseItemQty()
+//                .selectCustomerPosition(2)
+//                .addToCart();
 
         try {
             Thread.sleep(5000);
