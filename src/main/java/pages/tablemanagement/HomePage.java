@@ -23,10 +23,10 @@ public class HomePage extends BasePage {
         return this;
     }
 
-    public HomePage navToOrderManagement() {
+    public OrderManagementPage navToOrderManagement() {
         WebElement element = getFlutterElement("nav_bar_order_management");
         element.click();
-        return this;
+        return new OrderManagementPage(this.driver);
     }
 
     public HomePage navToStaffManagement() {
@@ -45,6 +45,12 @@ public class HomePage extends BasePage {
         WebElement element = getFlutterElement("nav_bar_logout");
         element.click();
         return this;
+    }
+
+    public LoginPage clickLogoutConfirm() {
+        WebElement element = getFlutterElement("logout_confirm");
+        element.click();
+        return new LoginPage(this.driver);
     }
 
 

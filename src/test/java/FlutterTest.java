@@ -10,12 +10,10 @@ public class FlutterTest extends BaseTest {
 
     @Test(groups = {TestGroups.FLUTTER})
     public void test() {
-        ActivationPage activationPage = new ActivationPage(this.driver)
+       new ActivationPage(this.driver)
                 .inputEmail("priyank+expresstaxe@taliup.ca")
                 .inputPassword("12345678")
-                .clickActivationButton();
-
-        LoginPage loginPage = new LoginPage(this.driver)
+                .clickActivationButton()
                 .selectUser(600)
                 .inputPin(1)
                 .inputPin(1)
@@ -24,9 +22,10 @@ public class FlutterTest extends BaseTest {
                 .inputPin(1)
                 .inputPin(1);
 
-        HomePage homePage = new HomePage(this.driver)
-                .navToOrderManagement();
-
+        new HomePage(this.driver)
+                .navToOrderManagement()
+                .selectOrder(15343)
+                .clickOrderCardEdit(15343);
 
         try {
             Thread.sleep(5000);

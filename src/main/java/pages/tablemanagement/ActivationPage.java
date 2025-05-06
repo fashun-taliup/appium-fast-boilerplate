@@ -23,10 +23,10 @@ public class ActivationPage extends BasePage {
         return this;
     }
 
-    public ActivationPage clickActivationButton() {
+    public LoginPage clickActivationButton() {
         WebElement element = getFlutterElement("activation_button");
         element.click();
-        return this;
+        return new LoginPage(this.driver);
     }
 
     public String getActivationButtonText() {
