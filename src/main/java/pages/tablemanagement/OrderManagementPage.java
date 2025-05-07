@@ -36,8 +36,20 @@ public class OrderManagementPage extends BasePage {
         return this;
     }
 
+    public OrderManagementPage selectOrderTableFilterAt(int index) {
+        WebElement element = getFlutterElement("order_filter_table_index_" + index);
+        element.click();
+        return this;
+    }
+
     public FlutterElement getOrderTableFilterAt(int index) {
         return getFlutterElement("order_filter_table_index_" + index);
+    }
+
+    public RegisterPage clickNewOrder() {
+        WebElement element = getFlutterElement("new_order_button");
+        element.click();
+        return new RegisterPage(this.driver);
     }
 
     public FlutterElement getOrderCardAt(int index) {
